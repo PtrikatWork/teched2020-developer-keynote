@@ -25,10 +25,10 @@ jobs:
       run: |
         cd ${{ github.event.inputs.componentdir }} \
         && docker build -f ./Dockerfile \
-        --tag docker.pkg.github.com/ptrikatwork/teched2020-developer-keynote/${{ github.event.inputs.app }}:${TAG} \
+        --tag docker.pkg.github.com/vannipa/teched2020-developer-keynote/${{ github.event.inputs.app }}:${TAG} \
         ${{ github.event.inputs.dir }}
     - name: Push the image to GitHub Package Registry
       if: ${{ success() }}
       run: |
         echo ${{ secrets.GITHUB_TOKEN }} | docker login ${HUB} --username ${USER} --password-stdin
-        docker push docker.pkg.github.com/ptrikatwork/teched2020-developer-keynote/${{ github.event.inputs.app }}:${TAG}
+        docker push docker.pkg.github.com/vannipa/teched2020-developer-keynote/${{ github.event.inputs.app }}:${TAG}
