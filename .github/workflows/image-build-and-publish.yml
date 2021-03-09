@@ -31,4 +31,4 @@ jobs:
       if: ${{ success() }}
       run: |
         echo ${{ secrets.GITHUB_TOKEN }} | docker login ${HUB} --username ${USER} --password-stdin
-        docker push ${HUB}/${GITHUB_REPOSITORY}/${{ github.event.inputs.app }}:${TAG}
+        docker push docker.pkg.github.com/ptrikatwork/teched2020-developer-keynote/${{ github.event.inputs.app }}:${TAG}
